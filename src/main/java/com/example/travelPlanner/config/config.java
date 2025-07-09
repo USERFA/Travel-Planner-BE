@@ -13,9 +13,11 @@ public class config implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // apply to all paths
-                .allowedOrigins("http://localhost:3000") // allow React dev server
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*");
-    }
+        registry
+          .addMapping("/api/**")
+          .allowedOrigins("http://localhost:3000")
+          .allowedMethods("*")
+          .allowedHeaders("*")
+          .allowCredentials(true);
+      }
 }
