@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import JwtSecurity.SecurePassword;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,8 +15,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "AppUser") // to rename the db name to userApp since User is a keyword
-
+@Table(name = "app_user") // to rename the db name to userApp since User is a keyword
 public class User {
 
 	@Id
@@ -25,7 +25,8 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String userName;
+	 @Column(name = "user_name") 
+	private String username;
 	private String  password; 
 	private String role = "USER"; // default role
 	
@@ -42,16 +43,16 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.userName = firstName + " " + lastName;
+        this.username = firstName + " " + lastName;
     }
 
 // Getters and setters
-	public String getUserName() {
-		return userName;//firstName+" "+lastName;
+	public String getUsername() {
+		return username;//firstName+" "+lastName;
 	}
 	
-	public void setUserName(String firstname,String lastname) {
-		this.userName = firstname+" "+lastname;		
+	public void setUsername(String username) {
+		this.username = username;		
 	}
 	
 	public Long getId() {

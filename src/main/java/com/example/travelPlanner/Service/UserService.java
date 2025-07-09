@@ -42,6 +42,9 @@ public class UserService {
     }
 
     public User getByUserName(String userName) {
-    	return userRepository.findByUserName(userName);
+    	 System.out.println("Searching for user: " + userName);
+    	 User user = userRepository.findByUsername(userName);
+    	System.out.println("Found user: " + user);
+    	return user;
     }
 }

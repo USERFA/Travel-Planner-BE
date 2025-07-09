@@ -23,7 +23,7 @@ public class CurrentUserDetailsService {
         }
 
         return (User) org.springframework.security.core.userdetails.User
-            .withUsername(user.getUserName())
+            .withUsername(user.getUsername())
             .password(user.getPassword()) // password must be hashed!
             .authorities("USER") // simple role
             .build();

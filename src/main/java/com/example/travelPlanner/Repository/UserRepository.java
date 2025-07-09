@@ -11,5 +11,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	
 	//JPA : handles DB crud operations without the need to write SQL
 		//used for login, find by username || password
-	 	 User findByUserName(String username);
+	 	 User findByUsername(String username);
 }
