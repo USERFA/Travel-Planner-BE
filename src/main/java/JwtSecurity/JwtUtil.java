@@ -2,7 +2,6 @@ package JwtSecurity;
 
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +14,6 @@ public class JwtUtil {
 
 	private final String secret;
 	
-    @Autowired
     public JwtUtil(@Value("${jwt.secret}") String secret) {
         this.secret = secret;
     }

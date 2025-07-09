@@ -25,7 +25,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String username;
+	private String userName;
 	private String  password; 
 	private String role = "USER"; // default role
 	
@@ -42,16 +42,16 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.username = firstName + " " + lastName;
+        this.userName = firstName + " " + lastName;
     }
 
 // Getters and setters
 	public String getUserName() {
-		return firstName+" "+lastName;
+		return userName;//firstName+" "+lastName;
 	}
 	
 	public void setUserName(String firstname,String lastname) {
-		this.username = firstname+" "+lastname;		
+		this.userName = firstname+" "+lastname;		
 	}
 	
 	public Long getId() {

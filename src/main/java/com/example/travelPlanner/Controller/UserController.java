@@ -26,4 +26,10 @@ public class UserController {
     public User createUser(@RequestBody User user) {
         return userRepository.save(user);
     }
+    
+    @PostMapping
+    public User getByUserName(String username) {
+        return userRepository.findByUserName(username);
+    }
+
 }
