@@ -27,9 +27,9 @@ public class UserController {
         return userRepository.save(user);
     }
     
-    @PostMapping
-    public User getByUserName(String username) {
-        return userRepository.findByUserName(username);
+    @PostMapping("/by-username")
+    public User getByUserName(@RequestParam String username) {
+        return userRepository.findByUsername(username);
     }
 
 }
