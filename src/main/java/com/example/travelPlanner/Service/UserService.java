@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.example.travelPlanner.Model.User;
 import com.example.travelPlanner.Repository.UserRepository;
 
+import Exception.ResourceNotFoundException;
+
 @Service
 public class UserService {
 	
@@ -33,10 +35,16 @@ public class UserService {
     }
 
 
-    public User getUserById(Long id) {
-        return userRepository.findById(id).orElse(null);
-    }
+//    public User getUserById(Long id) {
+//        return userRepository.findById(id).orElse(null);
+//    }
 
+    public User getByID(Long ID){
+        //added exception handling...
+        return this.userRepository.findById(ID)
+                .orElseThrow(()-> new ResourceNotFoundException("User not found with id: "+ID));
+    }
+    
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
